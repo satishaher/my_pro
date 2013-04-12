@@ -1,0 +1,35 @@
+<%if !flash[:notice].blank? %>
+<div align="center" ">
+	<%=flash[:notice]%>
+</div>
+<%end%>
+
+
+<h1>Login#register</h1>
+<p>Find me in app/views/login/register.html.erb</p>
+
+
+<%=render(:partial=>'shared/error_messages',:locals=>{:object => @user } ) %>
+
+<%= form_for(:user, :url => { :action =>'create_user'} ) do |f| %>
+
+<div align="center"" ">
+<%=render(:partial=>'shared/error_messages',:locals=>{:object => @user } ) %>
+
+<table>
+<tr> <td> Enter Email : </td><td><%= f.text_field(:email) %></td>
+</tr>
+<tr> <td>Password :</td><td> <%= f.text_field(:password)%></td>
+</tr>
+<tr><td>Confirm password:</td><td> <%= text_field_tag(:password2) %> </td>
+</tr>	
+<tr><td>First Name : </td><td><%= f.text_field(:f_name)%></td>
+</tr>
+<tr><td>Last Name : </td><td><%= f.text_field(:l_name)%></td>
+<tr>
+<tr><td></td><td><%= submit_tag("Register me") %></td>
+<tr>
+
+<% end %>
+</table>
+</div>

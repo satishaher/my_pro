@@ -1,0 +1,52 @@
+<%if !flash[:notice].blank? %>
+<div align="center" class="flash">
+	<%=flash[:notice]%>
+</div>
+<%end%>
+<%=render(:partial=>'shared/header_of_details',:locals=>{:object => @user } ) %>
+<div align="center"  class="book">
+
+<h3>Edit Book details</h3>
+
+<%= form_for(:book, :url => { :action =>'update' ,:id=> @book.id} ) do |f| %>
+<table border="0">
+	<tr>
+		<td width="120">
+	           Book name : 
+		</td>
+		<td colspan="2">
+			<%= f.text_field(:name) %>
+		</td>
+	</tr>
+<tr  valign="top">
+		<td>
+			Author :
+		</td>
+		<td colspan="2">
+			<%= f.text_field(:author) %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Gener :
+		</td>
+		<td colspan="2">
+		<%= f.text_field(:gener) %><br/>
+		</td>
+	</tr>
+	
+	<tr height="70">
+		<td>
+			
+		</td>
+		<td width="130">
+			<%= submit_tag("Update") %>
+			<% end %>
+		</td><td>
+		<%= button_to "Calcel", :controller => 'book',:action=>'show' ,:id=> @book.id%>
+		</td>
+	</tr>
+
+</table>
+
+</div>

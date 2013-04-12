@@ -1,0 +1,55 @@
+
+
+<div align="center">
+	<h2>Welcome to Favorite Website</h2>
+</div>
+
+
+<div align="center">
+	<h2>Register here</h2>
+</div>
+<%= link_to("List users",{:action=>'list'} ) %>
+<h3><%= link_to("Login",{:action=>'login'} ) %></h3>
+
+<%= form_for(:user , :url => { :action =>'create' } ) do |f| %>
+
+
+<div align="center"  class="lll">
+	<table>
+		<tr>
+		    <td> Enter Email : </td><td><%= f.text_field(:email) %></td><td>
+		        <%if @user && @user.errors.size >0%>
+		       <font color="red"> <%@user.errors[:email].each do |msg|%><%=msg%><%end%> </font>
+		        <%end%>
+		        </td>
+		</tr>
+		<tr>
+			<td>Password :</td><td> <%= f.password_field(:password)%></td><td>
+			    <%if @user && @user.errors.size >0%>
+			  <font color="red">  <%@user.errors[:password].each do |msg|%><%=msg%><%end%></font>
+			    <%end%>
+			    </td>
+		</tr>
+		<tr>
+			<td>Confirm password:</td><td> <%= f.password_field(:password_confirmation) %> </td>
+			<td><%if @user && @user.errors.size >0%>
+			  <font color="red">  <%@user.errors[:password_confirmation]%></font>
+			    <%end%>
+			    </td>
+		</tr>
+		<tr>
+			<td>First Name : </td><td><%= f.text_field(:f_name)%></td><td>
+			    <%if @user && @user.errors.size >0%>
+			   <font color="red"> <%@user.errors[:f_name].each do |msg|%><%=msg%> <%end%></font>
+			    <%end%>
+			    </td>
+		</tr>
+		<tr>
+			<td>Last Name : </td><td><%= f.text_field(:l_name)%></td>
+		<tr>
+		<tr>
+			<td></td><td><%= submit_tag("Register me") %></td>
+		<tr>		   						
+	</table>
+	<%end%>
+</div>

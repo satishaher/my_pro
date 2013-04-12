@@ -1,0 +1,26 @@
+<div><%= pluralize(@users.size,'User') %> Found</div>
+<table border="2" >
+<tr>
+<td>ID</td>
+<td>email</td>
+<td>password</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<%= link_to("Register page ",{:action=>'register'} ) %>
+ <%  @users.each do |u| %>
+</tr>
+<tr></tr>
+<tr class="<%= cycle('odd','even') %>">
+<td><%= u.id  %></td>
+<td><%= u.email  %></td>
+<td><%= u.password %></td>
+<td><%= link_to("Edit",{:action=>'edit', :id => u.id } ) %></td>
+<td><%= link_to("Show",{:action=>'show', :id => u.id } ) %></td>
+<td><%= link_to("Delete",{:action=>'delete', :id => u.id } ) %></td>
+</tr>
+
+<% end %>
+</table>

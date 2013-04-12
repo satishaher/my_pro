@@ -1,0 +1,44 @@
+<%if !flash[:notice].blank? %>
+<div align="center" class="flash">
+	<%=flash[:notice]%>
+<%end%>
+</div>
+<%=render(:partial=>'shared/header_of_details',:locals=>{:object => @user } ) %>
+
+<div align="center"  class="movie" >
+
+<h2>Your favorite Movies list</h2>
+
+<div><%= pluralize(@movies.size,'Movie') %> in your list</div></br>
+<table border="0" align="center" >
+<tr>
+
+<td width="150"><b> Movie name</b></td>
+<td width="80"><b>Gener</b></td>
+<td width="100"></td>
+</tr>
+<tr>
+
+ <%  @movies.each do |m| %>
+</tr>
+<tr></tr>
+<tr class="<%= cycle('odd','even') %>">
+<td><%= m.name  %></td>
+<td><%= m.gener %></td>
+<td><%= link_to("Show details",{:action=>'show', :id => m.id } ) %></td>
+</tr>
+<tr>
+	<% end %>
+</tr>
+<tr height="30"><td></td><td></td><td></td></tr>
+
+<tr>
+	<td align="right" colspan="3" >
+		<%= link_to("Add movie to list ",{:action=>'new'} ) %>		
+	</td>
+	
+</tr>
+
+</table>
+
+</div>

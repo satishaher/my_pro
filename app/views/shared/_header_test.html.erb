@@ -1,0 +1,29 @@
+
+
+<%if !object.email.nil? %>
+<p align="right"">
+<%= object.email  %>    
+</p>
+
+<%end%>
+
+
+<div>
+<h4 align="right"><%=  link_to("logout ",{:controller=>'users',:action=>'logout'} )  %>  </h4>
+<h3 align="center"">    
+    
+<table width="40%" align="center">
+    <tr>
+    <td><%= link_to("Movies",{:controller=>'movie',:action=>'list'} ) %><p style="word-spacing: 5%;">       
+    </td>
+    <td><%= link_to("Songs",{ :controller=>'song' , :action=>'list'} ) %><p style="word-spacing: 5%;">      
+    </td>
+    <td><%= link_to("Books",{:controller=>'book' ,:action=>'list'} ) %> <p style="word-spacing: 5%;">   
+    </td>
+    </tr>       
+</table>
+<hr>
+</h3>
+
+
+</div>

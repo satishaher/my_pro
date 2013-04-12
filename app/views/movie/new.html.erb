@@ -1,0 +1,56 @@
+<%if !flash[:notice].blank? %>
+<div align="center" class="flash">
+	<%=flash[:notice]%>
+</div>
+<%end%>
+<%=render(:partial=>'shared/header_of_details',:locals=>{:object => @user } ) %>
+
+
+<div align="center" class="movie">
+
+<h2>Add new Movie to your favorite list</h2>
+<table>
+
+
+
+<tr height="60">
+	<td width="100"><%= link_to(" back to records",{:action=>'list'} ) %></td>
+	<td width="200"></td>
+	<td></td>
+</tr>
+
+<%= form_for(:movie, :url => { :action =>'create' ,:movie=> @movie.id} ) do |f| %>
+
+
+
+
+	
+<tr>
+	<td width="100">Movie name :</td>
+	<td width="200"><%= f.text_field(:name) %></td>
+	<td></td>
+</tr>
+
+<tr >
+	<td align="top">Description : </td>
+	<td><%= f.text_area(:desc,:size=>"29x5") %></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>Gener :</td>
+	<td><%= f.text_field(:gener ) %></td>
+	<td></td>
+</tr>
+ <tr>
+	<td></td>
+	<td><%= submit_tag("Add Movie to list") %></td>
+	<td></td>
+</tr>
+ 
+
+
+<% end %>
+</table>
+
+</div>

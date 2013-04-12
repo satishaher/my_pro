@@ -1,0 +1,25 @@
+<%if !flash[:notice].blank? %>
+<div align="center" ">
+	<%=flash[:notice]%>
+</div>
+<%end%>
+
+
+<h1>Login#login</h1>
+<p>Find me in app/views/login/login.html.erb</p>
+
+<%= form_for(:user,:url => { :controller => 'login',:action =>'login_me' ,:user=> @user.id } ) do |f| %>
+<div align="center">	
+	
+<table>
+<tr> <td>Enter Email :</td> <td><%= f.text_field(:email) %></td>
+</tr>
+<tr> <td>Password : </td> <td><%= f.text_field(:password)%></td>
+</tr>
+<tr><td></td><td><%= submit_tag("Login") %></td>
+</tr>
+</table>
+
+
+<% end %>
+</div>
