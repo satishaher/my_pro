@@ -25,7 +25,7 @@ end
 gem 'jquery-rails'
 group :development do
     gem "rails-erd"
-    gem 'pry'
+    
 end
 #gem for cucumber
 
@@ -33,5 +33,6 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0.1"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'pry'
 end
 ############################################################################################################3
